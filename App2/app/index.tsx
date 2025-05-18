@@ -1,73 +1,97 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 
-export default function TiposDeNescal() {
+
+export default function NescauComparacao() {
   return (
+<ScrollView contentContainerStyle={styles.container}>
     <View style={styles.container}>
-      <Text style={styles.titulo}>TIPOS DE NESCAL</Text>
+      <Text style={styles.titulo}>COMPARAÇÕES</Text>
 
-      <Image
-        source={require('@/assets/images/Nescau.png')}
-        style={styles.banner}
-        resizeMode="contain"
-      />
 
       <View style={styles.row}>
-        <Image
-          source={require('@/assets/images/embalagem1.jpg')}
-          style={styles.roundImage}
-        />
-        <Text style={styles.description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-          vehicula, nisl vel convallis sollicitudin, sapien nulla.
-        </Text>
-      </View>
+        <View style={styles.item}>
+          <Image
+            source={require('@/assets/images/anime1.jpg')}
+            style={styles.image}
+            resizeMode="cover"
+          />
+          <Text style={styles.description}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non ligula vel.
+          </Text>
+        </View>
+
+
+        <View style={styles.item}>
+          <Image
+            source={require('@/assets/images/anime3.png')}
+            style={styles.image}
+            resizeMode="cover"
+          />
+          <Text style={styles.description}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non ligula vel.
+          </Text>
+        </View>
+        </View>
+
 
       <View style={styles.row}>
-        <Image
-          source={require('@/assets/images/embalagem2.png')}
-          style={styles.roundImage}
-        />
-        <Text style={styles.description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-          vehicula, nisl vel convallis sollicitudin, sapien nulla.
-        </Text>
-      </View>
+        <View style={styles.item}>
+          <Image
+            source={require('@/assets/images/anime1.jpg')}
+            style={styles.image}
+            resizeMode="cover"
+          />
+          <Text style={styles.description}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non ligula vel.
+          </Text>
+        </View>
 
-    </View >
-    
+
+        <View style={styles.item}>
+          <Image
+            source={require('@/assets/images/anime3.png')}
+            style={styles.image}
+            resizeMode="cover"
+          />
+          <Text style={styles.description}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non ligula vel.
+          </Text>
+        </View>
+      </View>
+    </View>
+     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 40,
+    paddingVertical: 10,
     paddingHorizontal: 20,
     alignItems: "center",
-    marginBottom: 20, 
   },
   titulo: {
     fontSize: 24,
     fontWeight: "bold",
-    alignSelf: "center",
-  },
-  banner: {
-    width: '100%',
-    height: 200,
-    marginBottom: 20, 
+    marginBottom: 40,
   },
   row: {
     flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 20, 
+    justifyContent: "space-between",
+    gap: 20,
+    marginBottom: 30,
   },
-  roundImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginRight: 15,
+  item: {
+    flex: 1,
+    alignItems: "center",
+  },
+  image: {
+    width: "100%",
+    height: 300,
+    borderRadius: 10,
+    marginBottom: 10,
   },
   description: {
-    flex: 1,
+    textAlign: "center",
     fontSize: 14,
   },
 });
