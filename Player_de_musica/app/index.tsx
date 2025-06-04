@@ -1,108 +1,204 @@
 import * as React from 'react';
-import { View, Image, StyleSheet, Text } from 'react-native';
-import { ProgressBar, MD3Colors, Avatar } from 'react-native-paper';
+import { View, Text, StyleSheet } from 'react-native';
+import { Avatar, PaperProvider } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const MyComponent = () => {
+const Tela_musicas = () => {
   return (
-    <View style={styles.container}>
-      <Avatar.Image source={require('@/assets/images/2-Copia.jpg')}
-        size={40}
-        style={styles.avatar}
-      />
-      <Image
-        source={require('@/assets/images/channels4_profile.jpg')}
-        style={styles.image}
-        resizeMode="contain"
-      />
-      <Text style={styles.Title}>Ontem comi pipoca com sal</Text>
-      <Text style={styles.Subtitle}>Caçarola</Text>
+    <PaperProvider>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <MaterialCommunityIcons name="arrow-left" size={28} color="white" />
+          <Text style={styles.title}>Faixas</Text>
+          <Avatar.Image source={require('@/assets/images/channels4_profile.jpg')} size={36} />
+        </View>
 
-      <View style={styles.iconDois}>
-        <MaterialCommunityIcons name="heart-outline" size={30} color="white" />
-        <MaterialCommunityIcons name="playlist-music" size={30} color="white" />
-        <MaterialCommunityIcons name="equalizer" size={30} color="white" />
-        <MaterialCommunityIcons name="plus" size={30} color="white" />
+        <View style={styles.card}>
+          <Avatar.Image source={require('@/assets/images/joao.jpeg')} size={50} style={styles.cantorAvatar} />
+          <View style={styles.info}>
+            <Text style={styles.title_music}>Na sua cintura</Text>
+            <Text style={styles.artist}>João Gomes</Text>
+          </View>
+          <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
+        </View>
+        <View style={styles.linha} />
+
+        <View style={styles.card}>
+          <Avatar.Image source={require('@/assets/images/grafiti.jpeg')} size={50} style={styles.cantorAvatar} />
+          <View style={styles.info}>
+            <Text style={styles.title_music}>Feito manteiga</Text>
+            <Text style={styles.artist}>Grafitti</Text>
+          </View>
+          <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
+        </View>
+        <View style={styles.linha} />
+
+        <View style={styles.card}>
+          <Avatar.Image source={require('@/assets/images/joao.jpeg')} size={50} style={styles.cantorAvatar} />
+          <View style={styles.info}>
+            <Text style={styles.title_music}>Meu cafofo</Text>
+            <Text style={styles.artist}>João Gomes</Text>
+          </View>
+          <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
+        </View>
+        <View style={styles.linha} />
+
+        <View style={styles.card}>
+          <Avatar.Image source={require('@/assets/images/matue.jpg')} size={50} style={styles.cantorAvatar} />
+          <View style={styles.info}>
+            <Text style={styles.title_music}>Espaço na nave</Text>
+            <Text style={styles.artist}>Matue</Text>
+          </View>
+          <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
+        </View>
+        <View style={styles.linha} />
+
+        <View style={styles.card}>
+          <Avatar.Image source={require('@/assets/images/need.jpg')} size={50} style={styles.cantorAvatar} />
+          <View style={styles.info}>
+            <Text style={styles.title_music}>In My Head</Text>
+            <Text style={styles.artist}>Queens of the Stone Age</Text>
+          </View>
+          <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
+        </View>
+        <View style={styles.linha} />
+
+        <View style={styles.card}>
+          <Avatar.Image source={require('@/assets/images/ze_vaqueiro.jpg')} size={50} style={styles.cantorAvatar} />
+          <View style={styles.info}>
+            <Text style={styles.title_music}>Que vida boa</Text>
+            <Text style={styles.artist}>Zé Vaqueiro</Text>
+          </View>
+          <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
+        </View>
+        <View style={styles.linha} />
+
+        <View style={styles.card}>
+          <Avatar.Image source={require('@/assets/images/grafiti.jpeg')} size={50} style={styles.cantorAvatar} />
+          <View style={styles.info}>
+            <Text style={styles.title_music}>Vou pra quebrada</Text>
+            <Text style={styles.artist}>Grafitti</Text>
+          </View>
+          <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
+        </View>
+        <View style={styles.linha} />
+
+        <View style={styles.playerBar}>
+          <Avatar.Image
+            source={require('@/assets/images/ze_vaqueiro.jpg')}
+            size={44}
+            style={styles.cantorAvatar}
+          />
+          <View style={styles.playerInfo}>
+            <Text style={styles.title_music}>Deep shake</Text>
+            <Text style={styles.musicaArtista}>Eze Drill</Text>
+          </View>
+
+          <View style={styles.playerIconsContainer}>
+            <MaterialCommunityIcons name="skip-previous" size={36} color="white" />
+            <MaterialCommunityIcons name="play" size={36} color="white" />
+            <MaterialCommunityIcons name="skip-next" size={36} color="white" />
+            <MaterialCommunityIcons name="playlist-music" size={36} color="white" />
+          </View>
+        </View>
+
       </View>
-
-      <ProgressBar
-        progress={0.5}
-        color={MD3Colors.error50}
-        style={styles.progressBar}
-      />
-      <View style={styles.bola} />
-
-      <View style={styles.iconTres}>
-        <MaterialCommunityIcons name="repeat" size={30} color="white" />
-        <MaterialCommunityIcons name="skip-previous" size={30} color="white" />
-        <MaterialCommunityIcons name="play" size={70} color="white" />
-        <MaterialCommunityIcons name="skip-next" size={30} color="white" />
-        <MaterialCommunityIcons name="repeat-once" size={30} color="white" />
-      </View>
-    </View>
+    </PaperProvider>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    alignItems: 'center',
-    backgroundColor: '#262222',
+    backgroundColor: '#1C1C1C',
+    paddingHorizontal: 16,
+    paddingBottom: 100,
   },
-  avatar: {
-    position: 'absolute',
-    top: 16,
-    right: 46,
-    backgroundColor: 'transparent',
-    width: 10,
-  },
-  image: {
-    width: 550,
-    height: 300,
-    marginTop: 60,
-  },
-  Title: {
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-    marginTop: 10,
-  },
-  Subtitle: {
-    color: 'white',
-    fontSize: 15,
-    fontWeight: 'bold',
-    marginTop: 10,
-  },
-  progressBar: {
-    marginBottom: 95,
-    marginTop: 100,
-    width: 290,
-    borderRadius: 3,
-  },
-  bola: {
-    width: 16,
-    height: 16,
-    marginTop: -105,
-    borderRadius: 8,
-    backgroundColor: '#fff',
-  },
-  iconDois: {
-    flexDirection: 'row', 
-    justifyContent: 'space-around', 
-    alignItems: 'center',
-    width: '100%',
-    marginTop: 30,
-    marginBottom: -70,
-  },
-  iconTres: {
+
+  header: {
     flexDirection: 'row',
-    justifyContent: 'space-around', 
     alignItems: 'center',
-    width: '100%',
-    marginTop: 20,
-    marginBottom: 100,
+    marginVertical: 16,
+    justifyContent: 'space-between',
   },
+
+  title: {
+    color: '#fff',
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginRight: 200,
+  },
+
+  title_music: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+
+  card: {
+    flexDirection: 'row',
+    alignItems: 'center',
+
+    padding: 12,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+
+  info: {
+    flex: 1,
+    marginLeft: 12,
+  },
+
+  artist: {
+    color: '#ccc',
+    fontSize: 13,
+  },
+
+  playerBar: {
+    position: 'absolute',
+    bottom: 20,
+    left: 0,
+    right: 0,
+    backgroundColor: '#2C1C3C',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 12,
+  },
+
+  playerInfo: {
+    flex: 1,
+    marginLeft: 12,
+  },
+
+  musicaTitulo: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+
+  musicaArtista: {
+    color: '#ccc',
+    fontSize: 13,
+  },
+
+  playerIconsContainer: {
+    flexDirection: 'row',
+    gap: 18,
+  },
+
+  cantorAvatar: {
+    borderRadius: 6, 
+  },
+
+  linha: {
+    height: 1,
+    backgroundColor: '#333',
+    marginTop: -15,
+    marginBottom: 12,
+    marginLeft: 75,
+    marginRight: 0, 
+  },
+
 });
 
-export default MyComponent;
+export default Tela_musicas;
