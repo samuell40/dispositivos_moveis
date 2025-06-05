@@ -1,14 +1,19 @@
 import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { Avatar, PaperProvider } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router'; 
 
 const Tela_musicas = () => {
+  const router = useRouter(); 
+
   return (
     <PaperProvider>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <MaterialCommunityIcons name="arrow-left" size={28} color="white" />
+          <View style={styles.header}>
+            <Pressable onPress={() => router.push("/index2")}>
+            <MaterialCommunityIcons name="arrow-left" size={28} color="white" />
+          </Pressable>
           <Text style={styles.title}>Faixas</Text>
           <Avatar.Image source={require('@/assets/images/channels4_profile.jpg')} size={36} />
         </View>
@@ -21,7 +26,7 @@ const Tela_musicas = () => {
           </View>
           <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
         </View>
-        <View style={styles.linha} />
+        <View style={styles.linha} /> 
 
         <View style={styles.card}>
           <Avatar.Image source={require('@/assets/images/grafiti.jpeg')} size={50} style={styles.cantorAvatar} />
@@ -83,6 +88,16 @@ const Tela_musicas = () => {
         </View>
         <View style={styles.linha} />
 
+         <View style={styles.card}>
+          <Avatar.Image source={require('@/assets/images/grafiti.jpeg')} size={50} style={styles.cantorAvatar} />
+          <View style={styles.info}>
+            <Text style={styles.title_music}>Vou pra quebrada</Text>
+            <Text style={styles.artist}>Grafitti</Text>
+          </View>
+          <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
+        </View>
+        <View style={styles.linha} />
+
         <View style={styles.playerBar}>
           <Avatar.Image
             source={require('@/assets/images/ze_vaqueiro.jpg')}
@@ -110,7 +125,7 @@ const Tela_musicas = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#1C1C1C', 
     paddingHorizontal: 16,
     paddingBottom: 100,
   },
@@ -118,8 +133,9 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 16,
+    marginVertical: 50,
     justifyContent: 'space-between',
+    marginBottom: 10, 
   },
 
   title: {
@@ -138,7 +154,6 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     alignItems: 'center',
-
     padding: 12,
     borderRadius: 10,
     marginBottom: 10,
@@ -201,4 +216,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Tela_musicas;
+export default Tela_musicas; 

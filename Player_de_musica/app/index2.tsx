@@ -1,46 +1,51 @@
 import * as React from 'react';
-import { View, Image, StyleSheet, Text } from 'react-native';
+import { View, Image, StyleSheet, Text, Pressable } from 'react-native';
 import { ProgressBar, MD3Colors, Avatar, PaperProvider } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 const MyComponent = () => {
+  const router = useRouter();
   return (
     <PaperProvider>
-    <View style={styles.container}>
-      <Avatar.Image source={require('@/assets/images/channels4_profile.jpg')}
-        size={40}
-        style={styles.avatar}
-      />
-      <Image
-        source={require('@/assets/images/channels4_profile.jpg')}
-        style={styles.image}
-        resizeMode="contain"
-      /> 
-      <Text style={styles.Title}>Ontem comi pipoca com sal</Text>
-      <Text style={styles.Subtitle}>Caçarola</Text>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Pressable onPress={() => router.push("/")}>
+            <MaterialCommunityIcons name="arrow-left" size={28} color="white" />
+          </Pressable>
+          <Avatar.Image source={require('@/assets/images/channels4_profile.jpg')} size={36} />
+        </View>
 
-      <View style={styles.iconDois}>
-        <MaterialCommunityIcons name="heart-outline" size={30} color="white" />
-        <MaterialCommunityIcons name="playlist-music" size={30} color="white" />
-        <MaterialCommunityIcons name="equalizer" size={30} color="white" />
-        <MaterialCommunityIcons name="plus" size={30} color="white" />
+        <Image
+          source={require('@/assets/images/channels4_profile.jpg')}
+          style={styles.image}
+          resizeMode="contain"
+        />
+        <Text style={styles.Title}>Ontem comi pipoca</Text>
+        <Text style={styles.Subtitle}>Caçarola</Text>
+
+        <View style={styles.iconDois}>
+          <MaterialCommunityIcons name="heart-outline" size={30} color="white" />
+          <MaterialCommunityIcons name="playlist-music" size={30} color="white" />
+          <MaterialCommunityIcons name="equalizer" size={30} color="white" />
+          <MaterialCommunityIcons name="plus" size={30} color="white" />
+        </View>
+
+        <ProgressBar
+          progress={0.5}
+          color={MD3Colors.error50}
+          style={styles.progressBar}
+        />
+        <View style={styles.bola} />
+
+        <View style={styles.iconTres}>
+          <MaterialCommunityIcons name="repeat" size={30} color="white" />
+          <MaterialCommunityIcons name="skip-previous" size={30} color="white" />
+          <MaterialCommunityIcons name="play" size={70} color="white" />
+          <MaterialCommunityIcons name="skip-next" size={30} color="white" />
+          <MaterialCommunityIcons name="repeat-once" size={30} color="white" />
+        </View>
       </View>
-
-      <ProgressBar
-        progress={0.5}
-        color={MD3Colors.error50}
-        style={styles.progressBar}
-      />
-      <View style={styles.bola} />
-
-      <View style={styles.iconTres}>
-        <MaterialCommunityIcons name="repeat" size={30} color="white" />
-        <MaterialCommunityIcons name="skip-previous" size={30} color="white" />
-        <MaterialCommunityIcons name="play" size={70} color="white" />
-        <MaterialCommunityIcons name="skip-next" size={30} color="white" />
-        <MaterialCommunityIcons name="repeat-once" size={30} color="white" /> 
-      </View>
-    </View>
     </PaperProvider>
   );
 };
@@ -52,8 +57,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#262222',
   },
+  header: {
+   flexDirection: 'row',
+  alignItems: 'center',
+  marginVertical: 30,
+  justifyContent: 'space-between',
+   gap: 300,
+  },
   avatar: {
-    position: 'absolute',
     top: 16,
     right: 46,
     backgroundColor: 'transparent',
@@ -90,8 +101,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   iconDois: {
-    flexDirection: 'row', 
-    justifyContent: 'space-around', 
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     alignItems: 'center',
     width: '100%',
     marginTop: 30,
@@ -99,7 +110,7 @@ const styles = StyleSheet.create({
   },
   iconTres: {
     flexDirection: 'row',
-    justifyContent: 'space-around', 
+    justifyContent: 'space-around',
     alignItems: 'center',
     width: '100%',
     marginTop: 20,
